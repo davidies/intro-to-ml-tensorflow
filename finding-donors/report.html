@@ -13931,12 +13931,42 @@ It is a ratio of true positives(words classified as spam, and which are actually
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong></p>
+<p><strong>Answer:</strong></p>
+<p><strong>Random Forest</strong></p>
 <ul>
-<li>Random Forest can be applied on medical data because studies have been carried out in medical diagnosis to predict heart diseases, lungs diseases, and various tumors based on the past data collected from patients. So, if a patient has specific symptoms, the Random Forest could predict if the patient has any disease.</li>
-<li>Random Forest because when hyperparameters are the best, the scoring is very high because the prediction is based on the predictions of many Decision Trees. Also is impressive in versatility, parallelizable, great with high dimensionality, quick prediction and training speed, robust to outliers and non-linear data and so on. (Reference in <a href="https://towardsdatascience.com/why-random-forest-is-my-favorite-machine-learning-model-b97651fa3706">Why Random Forest is My Favorite Machine Learning Model</a>).</li>
-<li>Support Vector Machines (SVM) because is not suitable for large data sets, oes not perform very well, when the data set has more noise and in cases where number of features for each data point exceeds the number of training data sample. (Reference in <a href="https://medium.com/@dhiraj8899/top-4-advantages-and-disadvantages-of-support-vector-machine-or-svm-a3c06a2b107">Top 4 advantages and disadvantages of Support Vector Machine or SVM</a>).</li>
-<li>AdaBoost because I have many features (exactly 103!) and many samples too, so with the power of weak learners I will split the job between them in order to get a strong classifier making use of no much computing resources.</li>
+<li>It can be applied on medical data because studies have been carried out in medical diagnosis to predict heart diseases, lungs diseases, and various tumors based on the past data collected from patients. So, if a patient has specific symptoms, the Random Forest could predict if the patient has any disease.</li>
+<li>When hyperparameters are the best, the scoring is very high because the prediction is based on the predictions of many Decision Trees. Also is impressive in versatility, parallelizable, great with high dimensionality, quick prediction and training speed, robust to outliers and non-linear data and so on.</li>
+<li>The main weakness is overfitting, sometimes where hyperparameters are not well adjusted, the inner decision trees could fall on overfitting, high score on train data but small score on test data. Another weakness are an ensemble model is inherently less interpretable than an individual decision tree, Training a large number of deep trees can have high computational costs and use a lot of memory and Predictions are slower.</li>
+<li>This is a great model when there are a regular number of features because when there are a huge amount of features might produce overfitting and so depth trees.</li>
+</ul>
+<p>References:</p>
+<ul>
+<li><a href="https://towardsdatascience.com/why-random-forest-is-my-favorite-machine-learning-model-b97651fa3706">Why Random Forest is My Favorite Machine Learning Model</a></li>
+<li><a href="https://www.oreilly.com/library/view/hands-on-machine-learning/9781789346411/e17de38e-421e-4577-afc3-efdd4e02a468.xhtml">Pros and cons of random forests</a>.</li>
+</ul>
+<p><strong>Support Vector Machines (SVM)</strong></p>
+<ul>
+<li>An industry to apply SVM might be medicine, SVM is a powerful classification tool that has been used for cancer genomic classification or subtyping.</li>
+<li>When dataset follows a pattern, this model can be so powerful because they are memory efficient, as they only have to remember the support vectors and is more effective in high dimensional spaces.</li>
+<li>It is not suitable for large data sets, does not perform very well, when the data set has more noise and in cases where number of features for each data point exceeds the number of training data sample, in cases where number of features for each data point exceeds the number of training data sample, the SVM will under perform and as the support vector classifier works by putting data points, above and below the classifying hyper plane there is no probabilistic explanation for the classification.</li>
+<li>If I know about the data I can try to plot it and if the data can be linearly separable I can take a SVM with <em>linear</em> kernel, but if data follows a more complex pattern like circles, curves, so on I might take a SVM with another kernel tricks like <em>poly</em> or <em>rbf</em>.</li>
+</ul>
+<p>References:</p>
+<ul>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5822181/">Applications of Support Vector Machine (SVM) Learning in Cancer Genomics</a></li>
+<li><a href="https://medium.com/@dhiraj8899/top-4-advantages-and-disadvantages-of-support-vector-machine-or-svm-a3c06a2b107">Top 4 advantages and disadvantages of Support Vector Machine or SVM</a></li>
+</ul>
+<p><strong>AdaBoost</strong></p>
+<ul>
+<li>There are many applications for AdaBoost, for example games, computer vision, search engines, so one. Thanks to this model is efficient and can handle many features without produce overfitting is a great candidate to any problem.</li>
+<li>AdaBoost has some importants strenghts like implicit feature selection, performs very well in practice, has few hyperparameters to set (estimator, learning rate and number of estimators), is simple for implement and resistant to overtiffing. This model is so general, so you can use it when any model works well.</li>
+<li>AdaBoost can be sensitive to noisy data and outliers, needs a termination condition and we must adjust for cost-sensitive or imbalanced class problems and to handle multiclass tasks.</li>
+<li>If data has many features and many samples too, so with the power of weak learners I will split the job between them in order to get a strong classifier making use of no much computing resources.</li>
+</ul>
+<p>References:</p>
+<ul>
+<li><a href="https://www.nickgillian.com/wiki/pmwiki.php/GRT/AdaBoost">Ada Boost</a></li>
+<li><a href="http://www.cs.man.ac.uk/~nikolaon/~nikolaon_files/Introduction_to_AdaBoost.pdf">Introduction to AdaBoost</a></li>
 </ul>
 
 </div>
@@ -14192,9 +14222,18 @@ Look at the graph at the bottom left from the cell above(the visualization creat
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
-<p>AdaBoost is a model that is made up of weak classifiers (or estimators) with the purpose of creating a single strong classifier from them. Weak classifiers are commonly decision trees with depth equal to 1.</p>
-<p>The training process is straightforward and works sequentially. The first estimator makes a prediction and the error is calculated, then more importance is given to the points that were misclassified and a prediction is made with a new estimator, the error is calculated again, more importance is given to the misclassified points and a prediction is made with a new estimator makes the prediction, these steps are repeated until the model converges and the error has been reduced as little as possible.</p>
-<p><img src="https://miro.medium.com/proxy/1*m2UHkzWWJ0kfQyL5tBFNsQ.png" height="350px"/></p>
+<p>AdaBoost is a model that is made up of weak classifiers (or estimators) with the purpose of creating a single strong classifier from them. Weak classifiers are commonly decision trees with depth equal to 1 and a decision tree with a depth equal to 1 is called <strong>stump</strong>. So, what is a decision tree? A decision tree is a model to classify data too but this modelis more simple that Adaboost. It consists on a root which is a yes/no question and each answer takes a different branch. The question is made of a feature of the data and at this point the data can be filtered through the this question, then the process continues to another node which is a yes/no question two and each answer takes a different branch, etc. In the final of the tree there are leaves which are the predictions of the data.
+<img src="images/decision-tree.png" width="450px" />
+A decision tree classifier can be represented on a 2D cartesian plane like this,
+<img src="images/decision-tree-axis.png" />
+Now the training process of AdaBoost is some similar, straightforward and works sequentially. The first weak learner (WL1) makes a prediction and the error is calculated.
+<img src="images/adaboost-wl-1.png" width="170px" />
+Then more importance is given to the points that were misclassified and a prediction is made with a new estimator (WL2), the error is calculated again.
+<img src="images/adaboost-wl-2.png" width="170px" />
+More importance is given to the misclassified points and a prediction is made with a new estimator (WL3) makes the prediction.
+<img src="images/adaboost-wl-3.png" width="170px" />
+These steps are repeated until the model converges and the error has been reduced as little as possible, then all weak learners vote to make the final model which is the <strong>strong classifier</strong>.
+<img src="images/adaboost.png" width="700px" /></p>
 
 </div>
 </div>
@@ -14378,11 +14417,11 @@ AdaBoostClassifier(algorithm=&#39;SAMME.R&#39;, base_estimator=None, learning_ra
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <ol>
-<li>capital-gain</li>
-<li>capital-loss</li>
-<li>hours-per-week</li>
-<li>occupation</li>
-<li>age</li>
+<li>capital-gain: it's the most important because is the unique feature that can increase the income.</li>
+<li>capital-loss: like the last one, this feature can modify the final result because it could decrease the final income.</li>
+<li>hours-per-week: hours per week could influence the result because in some cases people who work many hours per week tend to make more money and people who work a few hours tend to make less money.</li>
+<li>occupation: commonly someone that occupies a high position tend to make money but it is not the case if someone occupies a lower position.</li>
+<li>age: it could be the less important because so young people don not use to make a lot of money.</li>
 </ol>
 
 </div>
