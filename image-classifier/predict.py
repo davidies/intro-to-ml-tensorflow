@@ -17,7 +17,7 @@ def predict(img_path, model, categories, top_k):
     processed_img = np.expand_dims(processed_img, axis=0)
     predictions = model.predict(processed_img)[0]
     k_indexes = np.argsort(predictions)[-top_k:][::-1]
-    return {categories[idx]: predictions[idx] for idx in k_indexes if idx in categories}
+    return {categories[idx + 1]: predictions[idx] for idx in k_indexes}
 
 def main(args):
     import json
